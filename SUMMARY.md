@@ -2,7 +2,6 @@
 
 * [Introduction](README.md)
 * [java虚拟机](javaxu-ni-ji.md)
-  * [内存管理](javaxu-ni-ji/nei-cun-guan-li.md)
 * [虚拟机](xu-ni-ji.md)
   * [1.java自动内存管理](xu-ni-ji/javazi-dong-nei-cun-guan-li.md)
   * [2.Hotspot虚拟机对象](xu-ni-ji/2hotspotxu-ni-ji-dui-xiang.md)
