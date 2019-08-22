@@ -10,6 +10,7 @@
   * [6.java内存模型与线程](xu-ni-ji/6-javanei-cun-mo-xing-yu-xian-cheng.md)
   * [7.线程安全](xu-ni-ji/7-xian-cheng-an-quan.md)
 * [juc](juc.md)
+  * [线程安全](juc/xian-cheng-an-quan.md)
 * 微服务
 * spring
 
