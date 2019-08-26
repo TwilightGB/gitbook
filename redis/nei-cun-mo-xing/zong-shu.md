@@ -15,16 +15,29 @@ jemalloc作为Redis的默认内存分配器，在减小内存碎片方面做的�
 ## RedisObject
 Redis对象有5种类型；无论是哪种类型，Redis都不会直接存储，而是通过RedisObject对象进行存储。RedisObject对象非常重要，Redis对象的类型、内部编码、内存回收、共享对象等功能，都需要RedisObject支持。
 RedisObject的定义如下：
-### type
+### 1.type
 type字段表示对象的类型，占4个比特；目前包括REDIS_STRING(字符串)、REDIS_LIST (列表)、REDIS_HASH(哈希)、REDIS_SET(集合)、REDIS_ZSET(有序集合)。
 当我们执行type命令时，便是通过读取RedisObject的type字段获得对象的类型。
-### encoding
+### 2.encoding
 encoding表示对象的内部编码，占4个比特。
 对于Redis支持的每种类型，都有至少两种内部编码，例如对于字符串，有int、embstr、raw三种编码。通过encoding属性，Redis可以根据不同的使用场景来为对象设置不同的编码，大大提高了Redis的灵活性和效率。
 
 以列表对象为例，有压缩列表和双端链表两种编码方式；如果列表中的元素较少，Redis倾向于使用压缩列表进行存储，因为压缩列表占用内存更少，而且比双端链表可以更快载入；当列表对象元素较多时，压缩列表就会转化为更适合存储大量元素的双端链表。
-### lru
+### 3.lru
 lru记录的是对象最后一次被命令程序访问的时间
+通过对比lru时间与当前时间，可以计算某个对象的空转时间；object idletime命令可以显示该空转时间（单位是秒）。
+lru还与Redis的内存回收有关系：如果Redis打开了maxmemory选项，且内存回收算法选择的是volatile-lru或allkeys—lru，那么当Redis内存占用超过maxmemory指定的值时，Redis会优先选择空转时间最长的对象进行释放。
+### 4.refcount
+refcount记录的是该对象被引用的次数，类型为整型。refcount的作用，主要在于对象的引用计数和内存回收：
+
+
+    当创建新对象时，refcount初始化为1；
+
+    当有新程序使用该对象时，refcount加1；
+
+    当对象不再被一个新程序使用时，refcount减1；
+
+    当refcount变为0时，对象占用的内存会被释放。
 
 
 
