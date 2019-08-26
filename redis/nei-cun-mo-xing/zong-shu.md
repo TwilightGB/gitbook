@@ -65,3 +65,4 @@ ptr指针指向具体的数据，如前面的例子中，set hello world，ptr�
 综上所述，redisObject的结构与对象类型、编码、内存回收、共享对象都有关系；一个redisObject对象的大小为16字节：
 
 4bit+4bit+24bit+4Byte+8Byte=16Byte。
+
