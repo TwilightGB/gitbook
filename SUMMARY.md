@@ -12,5 +12,11 @@
 * [juc](juc.md)
   * [线程安全](juc/xian-cheng-an-quan.md)
 * 微服务
+* jdk
+  * [Map](map.md)
+    * [HashMap](map/hashmap.md)
 * spring
+* [redis](redis.md)
+  * [内存模型](redis/nei-cun-mo-xing.md)
+    * [综述](redis/nei-cun-mo-xing/zong-shu.md)
 
