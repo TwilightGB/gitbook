@@ -84,4 +84,4 @@ struct sdshdr {
 buf表示字节数组，用来存储字符串；
 len表示buf已使用的长度
 free表示buf未使用的长度。
-
+![](/assets/c.png)
