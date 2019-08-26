@@ -71,5 +71,5 @@ ptr指针指向具体的数据，如前面的例子中，set hello world，ptr�
 ![](/assets/hash.png)
 ![](/assets/set1.png)
 ![](/assets/set2.png)
-### 
+![](/assets/sortedset.png)
 
