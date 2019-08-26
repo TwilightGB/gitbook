@@ -2,6 +2,9 @@
 
 有许多数据结构的定义其实是按照（结点+组织方式）来的，结点就是一个数据点，组织方式就是把结点组织起来形成数据结构，比如 双端链表 (ListNode+list)、字典（dictEntry+dictht+dict）等。
 
+
+
+```
 typedef struct zskiplistNode {     
     sds ele;                              //数据域
     double score;                         //分值 
@@ -11,3 +14,12 @@ typedef struct zskiplistNode {
         unsigned int span;                //某一层距离下一个结点的跨度
     } level[];                            //level本身是一个柔性数组，最大值为32，由 ZSKIPLIST_MAXLEVEL 定义
 } zskiplistNode;
+    
+typedef struct zskiplist {
+    struct zskiplistNode *header;     //头部
+    struct zskiplistNode *tail;       //尾部
+    unsigned long length;             //长度，即一共有多少个元素
+    int level;                        //最大层级，即跳表目前的最大层级
+} zskiplist;
+```
+
