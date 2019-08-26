@@ -37,3 +37,11 @@ ziplist是无序的，而intset是从小到大有序的。因此，在ziplist上
 
 ziplist可以对每个数据项进行不同的变长编码（每个数据项前面都有数据长度字段len），而intset只能整体使用一个统一的编码（encoding）。
 ## redis的set
+
+set命令：
+
+sadd用于分别向集合s1和s2中添加元素。添加的元素既有数字，也有非数字（”a”和”b”）。
+
+sismember用于判断指定的元素是否在集合内存在。
+
+sinter, sunion和sdiff分别用于计算集合的交集、并集和差集。
