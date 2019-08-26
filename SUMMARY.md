@@ -22,4 +22,5 @@
     * [SDS](redis/nei-cun-mo-xing/sds.md)
     * [Dict](redis/nei-cun-mo-xing/dict.md)
     * [List](redis/nei-cun-mo-xing/list.md)
+    * skipList
 
