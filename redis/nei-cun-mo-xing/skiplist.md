@@ -21,3 +21,6 @@ typedef struct zskiplist {
 } zskiplist;
 ```
 
+skiplist构建过程：
+![](/assets/skiplist_insertions.png)
+
