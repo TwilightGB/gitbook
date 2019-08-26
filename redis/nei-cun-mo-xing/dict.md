@@ -1,0 +1,1 @@
+dict是一个用于维护key和value映射关系的数据结构，与很多语言中的Map或dictionary类似。
