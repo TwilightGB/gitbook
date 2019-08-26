@@ -22,6 +22,7 @@
     * [SDS](redis/nei-cun-mo-xing/sds.md)
     * [Dict](redis/nei-cun-mo-xing/dict.md)
     * [List](redis/nei-cun-mo-xing/list.md)
+    * [ziplist](redis/nei-cun-mo-xing/ziplist.md)
     * [skipList](redis/nei-cun-mo-xing/skiplist.md)
     * [intset](redis/nei-cun-mo-xing/intset.md)
 
