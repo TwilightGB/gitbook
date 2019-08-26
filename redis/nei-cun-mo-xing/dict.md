@@ -56,4 +56,4 @@ typedef struct dictEntry {
 **dictEntry结构中包含：**
 key：保存键值对中的键
 value：键值对中的值，可以是uint64_t 整数，int64_t整数，或者一个指针。
-next：
+next：指向另一个hash表节点的指针，这个指针可以将多个哈希值相同的键值对链接在一起，以此来解决键冲突的问题。
