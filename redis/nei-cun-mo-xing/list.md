@@ -36,4 +36,5 @@ typedef struct list {
 
 } list;
 ```
+![](/assets/list.png)
 
