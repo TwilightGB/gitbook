@@ -16,22 +16,24 @@ jemalloc作为Redis的默认内存分配器，在减小内存碎片方面做的�
 Redis对象有5种类型；无论是哪种类型，Redis都不会直接存储，而是通过RedisObject对象进行存储。RedisObject对象非常重要，Redis对象的类型、内部编码、内存回收、共享对象等功能，都需要RedisObject支持。
 RedisObject的定义如下：
 
+（1）type
 
-```
-typedef struct redisObject {
 
-　　unsigned type:4;
+type字段表示对象的类型，占4个比特；目前包括REDIS_STRING(字符串)、REDIS_LIST (列表)、REDIS_HASH(哈希)、REDIS_SET(集合)、REDIS_ZSET(有序集合)。
+（2）encoding
 
-　　unsigned encoding:4;
 
-　　unsigned lru:REDIS_LRU_BITS; /* lru time (relative to server.lruclock) */
+encoding表示对象的内部编码，占4个比特。
 
-　　int refcount;
 
-　　void *ptr;
+对于Redis支持的每种类型，都有至少两种内部编码，例如对于字符串，有int、embstr、raw三种编码。通过encoding属性，Redis可以根据不同的使用场景来为对象设置不同的编码，大大提高了Redis的灵活性和效率。
 
-} robj;
-```
+
+以列表对象为例，有压缩列表和双端链表两种编码方式；如果列表中的元素较少，Redis倾向于使用压缩列表进行存储，因为压缩列表占用内存更少，而且比双端链表可以更快载入；当列表对象元素较多时，压缩列表就会转化为更适合存储大量元素的双端链表。
+
+
+
+
 
 
 
