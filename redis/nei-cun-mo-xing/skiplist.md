@@ -2,8 +2,6 @@
 
 有许多数据结构的定义其实是按照（结点+组织方式）来的，结点就是一个数据点，组织方式就是把结点组织起来形成数据结构，比如 双端链表 (ListNode+list)、字典（dictEntry+dictht+dict）等。
 
-
-
 ```
 typedef struct zskiplistNode {     
     sds ele;                              //数据域
