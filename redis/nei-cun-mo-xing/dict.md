@@ -40,4 +40,4 @@ typedef struct dictEntry {
     struct dictEntry *next;
 } dictEntry;
 ```
-
+![](/assets/dict.png)
