@@ -28,3 +28,4 @@ skiplist构建过程：
 skiplist查找过程：
 ![](/assets/search_path_on_skiplist.png)
 
+**skiplist与平衡树、哈希表的比较**
