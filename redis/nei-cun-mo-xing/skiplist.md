@@ -50,4 +50,4 @@ sorted set是一个有序的数据集合，对于像类似排行榜这样的应�
     Fred 87.5
 ```
 
-
+![](/assets/redis_skiplist_example.png)
