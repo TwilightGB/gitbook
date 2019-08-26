@@ -15,6 +15,25 @@ jemalloc作为Redis的默认内存分配器，在减小内存碎片方面做的�
 ## RedisObject
 Redis对象有5种类型；无论是哪种类型，Redis都不会直接存储，而是通过RedisObject对象进行存储。RedisObject对象非常重要，Redis对象的类型、内部编码、内存回收、共享对象等功能，都需要RedisObject支持。
 RedisObject的定义如下：
+
+
+```
+typedef struct redisObject {
+
+　　unsigned type:4;
+
+　　unsigned encoding:4;
+
+　　unsigned lru:REDIS_LRU_BITS; /* lru time (relative to server.lruclock) */
+
+　　int refcount;
+
+　　void *ptr;
+
+} robj;
+```
+
+
 ### 1.type
 type字段表示对象的类型，占4个比特；目前包括REDIS_STRING(字符串)、REDIS_LIST (列表)、REDIS_HASH(哈希)、REDIS_SET(集合)、REDIS_ZSET(有序集合)。
 当我们执行type命令时，便是通过读取RedisObject的type字段获得对象的类型。
@@ -48,5 +67,21 @@ ptr指针指向具体的数据，如前面的例子中，set hello world，ptr�
 4bit+4bit+24bit+4Byte+8Byte=16Byte。
 ## SDS
 Redis没有直接使用C字符串(即以空字符‘\0’结尾的字符数组)作为默认的字符串表示，而是使用了SDS。SDS是简单动态字符串(Simple Dynamic String)的缩写。
+sds的结构如下：
 
+
+```
+struct sdshdr {
+
+    int len;
+
+    int free;
+
+    char buf[];
+
+};
+```
+buf表示字节数组，用来存储字符串；
+len表示buf已使用的长度
+free表示buf未使用的长度。
 
