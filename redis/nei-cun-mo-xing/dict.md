@@ -61,4 +61,4 @@ next：指向另一个hash表节点的指针，这个指针可以将多个哈希
 Hash算法：P27
 解决键冲突：
 rehash：
-渐进式rehash：
+渐进式rehash：P33
