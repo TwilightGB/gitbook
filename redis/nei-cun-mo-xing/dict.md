@@ -51,3 +51,9 @@ typedef struct dictEntry {
 **dictht结构，由如下若干项组成：**
 1.一个dictEntry指针数组（**table**）。key的哈希值最终映射到这个数组的某个位置上（对应一个bucket）。如果多个key映射到同一个位置，就发生了冲突，那么就拉出一个dictEntry链表。
 2.**size**：标识dictEntry指针数组的长度。它总是2的指数。
+3.**sizemask**：用于将哈希值映射到table的位置索引。它的值等于(size-1)，比如7, 15, 31, 63，等等，也就是用二进制表示的各个bit全1的数字。每个key先经过hashFunction计算得到一个哈希值，然后计算(哈希值 & sizemask)得到在table上的位置。相当于计算取余(哈希值 % size)。
+4.**used**：记录dict中现有的数据个数。它与size的比值就是装载因子（load factor）。这个比值越大，哈希值冲突概率越高。
+**dictEntry结构中包含：**
+key：保存键值对中的键
+value：键值对中的值，可以是uint64_t 整数，int64_t整数，或者一个指针。
+next：
