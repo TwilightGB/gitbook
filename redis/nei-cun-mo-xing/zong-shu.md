@@ -40,8 +40,13 @@ refcount记录的是该对象被引用的次数，类型为整型。refcount的�
     当refcount变为0时，对象占用的内存会被释放。
 
 Redis中被多次使用的对象(refcount>1)称为共享对象。Redis为了节省内存，当有一些对象重复出现时，新的程序不会创建新的对象，而是仍然使用原来的对象。这个被重复使用的对象，就是共享对象。目前共享对象仅支持整数值的字符串对象。
+### 5.ptr
+ptr指针指向具体的数据，如前面的例子中，set hello world，ptr指向包含字符串world的SDS。
 
+综上所述，redisObject的结构与对象类型、编码、内存回收、共享对象都有关系；一个redisObject对象的大小为16字节：
 
-
+4bit+4bit+24bit+4Byte+8Byte=16Byte。
+## SDS
+Redis没有直接使用C字符串(即以空字符‘\0’结尾的字符数组)作为默认的字符串表示，而是使用了SDS。SDS是简单动态字符串(Simple Dynamic String)的缩写。
 
 
