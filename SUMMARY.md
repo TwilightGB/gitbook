@@ -25,4 +25,7 @@
     * [skipList](redis/nei-cun-mo-xing/skiplist.md)
     * [intset](redis/nei-cun-mo-xing/intset.md)
   * [redisObject](redis/nei-cun-mo-xing/zong-shu.md)
+  * [持久化](redis/chi-jiu-hua.md)
+    * AOF
+    * RDB
 
