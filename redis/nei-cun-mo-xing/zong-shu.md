@@ -66,3 +66,6 @@ ptr指针指向具体的数据，如前面的例子中，set hello world，ptr�
 
 4bit+4bit+24bit+4Byte+8Byte=16Byte。
 
+![](/assets/string列表.png)
+![](/assets/listcommd.png)
+
