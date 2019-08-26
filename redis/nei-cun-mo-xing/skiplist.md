@@ -23,4 +23,8 @@ typedef struct zskiplist {
 
 skiplist构建过程：
 ![](/assets/skiplist_insertions.png)
+从上面skiplist的创建和插入过程可以看出，每一个节点的层数（level）是随机出来的，而且新插入一个节点不会影响其它节点的层数。因此，插入操作只需要修改插入节点前后的指针，而不需要对很多节点都进行调整。这就降低了插入操作的复杂度。实际上，这是skiplist的一个很重要的特性，这让它在插入性能上明显优于平衡树的方案。
+
+skiplist查找过程：
+![](/assets/search_path_on_skiplist.png)
 
