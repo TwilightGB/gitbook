@@ -36,3 +36,4 @@ ziplist可以存储任意二进制串，而intset只能存储整数。
 ziplist是无序的，而intset是从小到大有序的。因此，在ziplist上查找只能遍历，而在intset上可以进行二分查找，性能更高
 
 ziplist可以对每个数据项进行不同的变长编码（每个数据项前面都有数据长度字段len），而intset只能整体使用一个统一的编码（encoding）。
+## redis的set
