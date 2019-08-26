@@ -40,4 +40,9 @@ typedef struct dictEntry {
     struct dictEntry *next;
 } dictEntry;
 ```
+**未rehash的dict**
 ![](/assets/dict.png)
+一个dict由如下若干项组成：
+1.指向dictType结构的指针（**type**）。它通过自定义的方式使得dict的key和value能够存储任何类型的数据。
+2.私有数据指针（**privdata**）。由调用者在创建dict的时候传进来。
+3.两个哈希表（ht[2]）。只有在重哈希的过程中，ht[0]和ht[1]才都有效。而在平常情况下，只有ht[0]有效，ht[1]里面没有任何数据。上图表示的就是重哈希进行到中间某一步时的情况。
