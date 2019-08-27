@@ -30,4 +30,6 @@
     * AOF
     * RDB
 * [mysql](mysql.md)
+  * [三范式](mysql/san-fan-shi.md)
+  * [事物](mysql/shi-wu.md)
 
