@@ -21,7 +21,7 @@
 
 **可重复读（RR）**:加入间隙锁，一定程度上避免了幻读的产生！
 
-**序列化（Serializable）**
+**序列化（Serializable）**：串行化，该级别下读写串行化，且所有的select语句后都自动加上lock in share mode，即使用了共享锁。因此在该隔离级别下，使用的是当前读，而不是快照读。
 
 # mysql锁
 InnoDB与MyISAM的最大不同有两点：**一是支持事务（TRANSACTION）**；**二是采用了行级锁**
