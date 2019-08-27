@@ -69,6 +69,8 @@ ThreadLocalMap解决Hash冲突的方式就是简单的步长加1或减1，寻找
 显然ThreadLocalMap采用线性探测的方式解决Hash冲突的效率很低，如果有大量不同的ThreadLocal对象放入map中时发送冲突，或者发生二次冲突，则效率很低。
 
 
+所以这里引出的良好建议是：每个线程只存一个变量，这样的话所有的线程存放到map中的Key都是相同的ThreadLocal，如果一个线程要保存多个变量，就需要创建多个ThreadLocal，多个ThreadLocal放入Map中时会极大的增加Hash冲突的可能。
+
 1.ThreadLocal在同一个线程传值，或者只跟线程相关的场景使用
 2.初始化ThreadLocal的值可以用ThreadLocal.withInitial，或重写initialValue()
 3.父子线程共享相同的值使用InheritableThreadLocal
