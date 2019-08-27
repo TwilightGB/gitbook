@@ -22,7 +22,7 @@ static class ThreadLocalMap {
 ```
 
 ThreadLocalMap，它里面有一个静态类Entry（可以类比Map中的entry，保存实际的key和value，），ThreadLocalMap其实就是保存了ThreadLocal调用set方法设置的value，key就是ThreadLocal。
-总结一下就是当我们使用ThreadLocal的set方法时，ThreadLocal为key，保存的泛型对象为value，存到了ThreadLocal的内部类ThreadLocalMap中，然后ThreaLocalMap的键值对实际上是放在静态类Entry里面。这里稍微提一句Entry是继承了WeakReference弱引用，key是被弱引用的构造函数给创建的，value是强引用。
+总结一下就是当我们使用ThreadLocal的set方法时，ThreadLocal为key，保存的泛型对象为value，存到了ThreadLocal的内部类ThreadLocalMap中，然后ThreaLocalMap的键值对实际上是放在静态类Entry里面。这里稍微提一句Entry是继承了WeakReference弱引用（弱引用，生命周期只能存活到下次GC前），key是被弱引用的构造函数给创建的，value是强引用。
 
 **Get方法**
 
