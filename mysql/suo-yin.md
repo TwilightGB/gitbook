@@ -59,3 +59,47 @@ B+Tree是BTree的一个变种，设d为树的度数，h为树的高度，B+Tree�
 
 
 ![img](https://img-blog.csdn.net/20180411151308606)
+
+# 索引的类型
+
+常见的索引类型有：主键索引、唯一索引、普通索引、全文索引、组合索引
+
+1、主键索引：即主索引，根据主键pk_clolum（length）建立索引，不允许重复，不允许空值；
+
+```mysql
+ALTER TABLE 'table_name' ADD PRIMARY KEY pk_index('col')；
+```
+
+2、唯一索引：用来建立索引的列的值必须是唯一的，允许空值
+
+```mysql
+ALTER TABLE 'table_name' ADD UNIQUE index_name('col')；
+```
+
+3、普通索引：用表中的普通列构建的索引，没有任何限制
+
+```mysql
+ALTER TABLE 'table_name' ADD INDEX index_name('col')；
+```
+
+4、全文索引：用大文本对象的列构建的索引（下一部分会讲解）
+
+```mysql
+ALTER TABLE 'table_name' ADD FULLTEXT INDEX ft_index('col')；
+```
+
+5、组合索引：用多个列组合构建的索引，这多个列中的值不允许有空值
+
+```mysql
+ALTER TABLE 'table_name' ADD INDEX index_name('col1','col2','col3')；
+```
+
+*遵循“最左前缀”原则，把最常用作为检索或排序的列放在最左，依次递减，组合索引相当于建立了col1,col1col2,col1col2col3三个索引，而col2或者col3是不能使用索引的。
+
+*在使用组合索引的时候可能因为列名长度过长而导致索引的key太大，导致效率降低，在允许的情况下，可以只取col1和col2的前几个字符作为索引
+
+```mysql
+ALTER TABLE 'table_name' ADD INDEX index_name(col1(4),col2（3))；
+```
+
+表示使用col1的前4个字符和col2的前3个字符作为索引
