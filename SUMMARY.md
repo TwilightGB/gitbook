@@ -9,9 +9,10 @@
   * [5.虚拟机类加载机制](xu-ni-ji/5xu-ni-ji-lei-jia-zai-ji-zhi.md)
   * [6.java内存模型与线程](xu-ni-ji/6-javanei-cun-mo-xing-yu-xian-cheng.md)
   * [7.线程安全](xu-ni-ji/7-xian-cheng-an-quan.md)
-* [juc](juc.md)
+* [并发](juc.md)
   * [线程安全](juc/xian-cheng-an-quan.md)
-* 微服务
+  * [ThreadLocal](juc/threadlocal.md)
+* [微服务](wei-fu-wu.md)
 * jdk
   * [Map](map.md)
     * [HashMap](map/hashmap.md)
