@@ -29,7 +29,7 @@
   * [持久化](redis/chi-jiu-hua.md)
     * [AOF](redis/chi-jiu-hua/aof.md)
     * [RDB](redis/chi-jiu-hua/rdb.md)
-  * 主从复制
+  * [主从复制](redis/zhu-cong-fu-zhi.md)
 * [mysql\(InnoDB\)](mysql.md)
   * [三范式](mysql/san-fan-shi.md)
   * [InnoDB锁](mysql/suo.md)
