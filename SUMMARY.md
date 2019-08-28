@@ -29,7 +29,7 @@
   * [持久化](redis/chi-jiu-hua.md)
     * AOF
     * RDB
-* [mysql](mysql.md)
+* [mysql\(InnoDB\)](mysql.md)
   * [三范式](mysql/san-fan-shi.md)
   * [InnoDB锁](mysql/suo.md)
   * [索引](mysql/suo-yin.md)
