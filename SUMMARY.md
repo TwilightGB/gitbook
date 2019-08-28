@@ -28,7 +28,7 @@
   * [redisObject](redis/nei-cun-mo-xing/zong-shu.md)
   * [持久化](redis/chi-jiu-hua.md)
     * [AOF](redis/chi-jiu-hua/aof.md)
-    * RDB
+    * [RDB](redis/chi-jiu-hua/rdb.md)
 * [mysql\(InnoDB\)](mysql.md)
   * [三范式](mysql/san-fan-shi.md)
   * [InnoDB锁](mysql/suo.md)
