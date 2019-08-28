@@ -45,8 +45,6 @@ BTree是平衡搜索多叉树，设树的度为2d（d>1），高度为h，那么
     每个非叶子结点由n-1个key和n个指针point组成，其中d<=n<=2d,key和point相互间隔，结点两端一定是key；
     叶子结点指针都为null；
     非叶子结点的key都是[key,data]二元组，其中key表示作为索引的键，data为键值所在行的数据；
-![img](https://img-blog.csdn.net/20180411150103704)
-
 在BTree的结构下，就可以使用二分查找的查找方式，查找复杂度为h*log(n)，一般来说树的高度是很小的，一般为3左右，因此BTree是一个非常高效的查找结构。
 
 #### B+Tree索引
@@ -57,8 +55,19 @@ B+Tree是BTree的一个变种，设d为树的度数，h为树的高度，B+Tree�
     B+Tree的叶子结点没有指针，所有键值都会出现在叶子结点上，且key存储的键值对应data数据的物理地址；
     B+Tree的每个非叶子节点由n个键值key和n个指针point组成；
 
+![img](D:\books\Import\java_base\assets\mysql\B+tree.jpg)
 
-![img](https://img-blog.csdn.net/20180411151308606)
+**聚集索引（clustered index）**就是按照每张表的**主键**构造一颗B+树，同时叶子节点中存放的是整张表的行记录数据。聚集索引的叶子节点也称为数据页，每个数据页都通过一个双向列表进行连接。聚集索引表中的数据也是索引的一部分。
+
+​		每张表只能有一个聚集索引，因为实际的数据页只能按照一颗B+树进行排序。由于数据是按顺序存储的，聚集索引能够很快的根据范围值进行查找。
+
+**非聚集索引，也叫辅助索引**。叶子节点并不包含行记录的全部数据，叶子节点除了包含键值以外，每个叶子节点中的索引行还包括了一个书签。该书签就是相应行数据的聚集索引的键。
+
+辅助索引并不影响数据在聚集索引中的组织，因此每张表的辅助索引可以有多个。当通过辅助索引来获取数据时，InnoDB存储引擎会遍历辅助索引并找到叶子节点的指针来获得指向主键索引的主键，然后在通过主键索引来找到一个完整的行记录。
+
+![](D:\books\Import\java_base\assets\mysql\pk index.jpg)
+
+![](D:\books\Import\java_base\assets\mysql\unpk index.jpg)
 
 # 索引的类型
 
@@ -94,7 +103,7 @@ ALTER TABLE 'table_name' ADD FULLTEXT INDEX ft_index('col')；
 ALTER TABLE 'table_name' ADD INDEX index_name('col1','col2','col3')；
 ```
 
-*遵循“最左前缀”原则，把最常用作为检索或排序的列放在最左，依次递减，组合索引相当于建立了col1,col1col2,col1col2col3三个索引，而col2或者col3是不能使用索引的。
+遵循“**最左前缀**”原则，把最常用作为检索或排序的列放在最左，依次递减，组合索引相当于建立了col1,col1col2,col1col2col3三个索引，而col2或者col3是不能使用索引的。
 
 *在使用组合索引的时候可能因为列名长度过长而导致索引的key太大，导致效率降低，在允许的情况下，可以只取col1和col2的前几个字符作为索引
 
@@ -103,3 +112,7 @@ ALTER TABLE 'table_name' ADD INDEX index_name(col1(4),col2（3))；
 ```
 
 表示使用col1的前4个字符和col2的前3个字符作为索引
+
+
+
+## 
