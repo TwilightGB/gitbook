@@ -34,5 +34,4 @@
   * [三范式](mysql/san-fan-shi.md)
   * [InnoDB锁](mysql/suo.md)
   * [索引](mysql/suo-yin.md)
-  * [事物](mysql/shi-wu.md)
 
