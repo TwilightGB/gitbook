@@ -11,7 +11,6 @@
   * [7.线程安全](xu-ni-ji/7-xian-cheng-an-quan.md)
 * [并发](juc.md)
   * [线程安全](juc/xian-cheng-an-quan.md)
-  * [Java 内存模型\(JMM\)](juc/jmm.md)
   * [ThreadLocal](juc/threadlocal.md)
 * [微服务](wei-fu-wu.md)
 * jdk
