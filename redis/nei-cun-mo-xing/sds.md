@@ -17,8 +17,9 @@ struct sdshdr {
 buf表示字节数组，用来存储字符串；
 len表示buf已使用的长度
 free表示buf未使用的长度。
-![](/assets/c.png)
+![](D:\books\Import\java_base\assets\redis\c.png)
 通过SDS的结构可以看出，buf数组的长度=free+len+1（其中1表示字符串结尾的空字符）；所以，一个SDS结构占据的空间为：free所占长度+len所占长度+ buf数组的长度=4+4+free+len+1=free+len+9。
+
 ### SDS与C字符串的比较
 
 SDS在C字符串的基础上加入了free和len字段，带来了很多好处：
@@ -35,4 +36,4 @@ SDS在C字符串的基础上加入了free和len字段，带来了很多好处：
 此外，由于SDS中的buf仍然使用了C字符串（即以‘\0’结尾），因此SDS可以使用C字符串库中的部分函数。但是需要注意的是，只有当SDS用来存储文本数据时才可以这样使用，在存储二进制数据时则不行（‘\0’不一定是结尾）。
 
 总结：
-![](/assets/SDS&C.png)
+![](D:\books\Import\java_base\assets\redis\SDS&C.png)

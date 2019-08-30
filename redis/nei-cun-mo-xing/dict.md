@@ -41,7 +41,7 @@ typedef struct dictEntry {
 } dictEntry;
 ```
 **未rehash的dict**
-![](/assets/dict.png)
+![](D:\books\Import\java_base\assets\redis\dict.png)
 **一个dict由如下若干项组成：**
 1.指向dictType结构的指针（**type**）。它通过自定义的方式使得dict的key和value能够存储任何类型的数据。
 2.私有数据指针（**privdata**）。由调用者在创建dict的时候传进来。

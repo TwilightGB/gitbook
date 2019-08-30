@@ -36,7 +36,7 @@ typedef struct list {
 
 } list;
 ```
-![](/assets/list.png)
+![](D:\books\Import\java_base\assets\redis\list.png)
 
 **Redis链表的特性：**
 
@@ -49,3 +49,4 @@ typedef struct list {
 4.带链表长度计数器：len属性记录，获取链表长度O(1)
 
 5.多态：链表结点使用void*指针来保存结点的值，并且可以通过链表结构的三个函数为结点值设置类型特定函数，所以链表可以保存各种不同类型的值
+

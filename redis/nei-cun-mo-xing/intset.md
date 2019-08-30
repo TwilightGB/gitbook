@@ -21,7 +21,7 @@ typedef struct intset {
 最开始，新创建的intset使用占内存最小的INTSET_ENC_INT16（值为2）作为数据编码。
 每添加一个新元素，则根据元素大小决定是否对数据编码进行升级。
 
-![](/assets/redis_intset_add_example.png)
+![](D:\books\Import\java_base\assets\redis\redis_intset_add_example.png)
 
 1.新创建的intset只有一个header，总共8个字节。其中encoding = 2, length = 0。
 2.添加13, 5两个元素之后，因为它们是比较小的整数，都能使用2个字节表示，所以encoding不变，值还是2。
